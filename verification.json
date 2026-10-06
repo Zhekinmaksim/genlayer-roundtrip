@@ -1,0 +1,20 @@
+{
+  "contract": "roundtrip",
+  "source_sha256": "f2e8617717d831d5da75fe0b7d0e8fe3f8c32566c63fcabf7a8c85e41a19fbf3",
+  "smoke_cases": 2,
+  "schema_arguments_match": true,
+  "verified_on": "2026-10-03",
+  "status": "prepared_for_studio_deployment",
+  "sdk": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "linter_version": "0.11.0",
+  "linter_check": "pass_without_warnings",
+  "sdk_semantic_validation": "pass",
+  "local_test_groups": {
+    "passed": 10,
+    "total": 10
+  },
+  "archive_sha256": "c5512977e4ff9357f5fdba266f9606829d28bdb21b53bbbdcda85e5e8a6f6ae5",
+  "deployed": false,
+  "live_consensus_tested": false,
+  "limitations": "Mocked local tests plus SDK schema validation only; not full GenVM execution, live model correctness, or guaranteed portal acceptance."
+}

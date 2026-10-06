@@ -1,0 +1,50 @@
+{
+  "network": "studionet",
+  "executed": false,
+  "cases": [
+    {
+      "id": "roundtrip-faithful-001",
+      "open_args": [
+        "roundtrip-faithful-001",
+        "Copy source verbatim",
+        "Copy text verbatim",
+        "quantity of three units\ndelivery deadline Friday"
+      ],
+      "submit_method": "submit_source",
+      "submit_args": [
+        "roundtrip-faithful-001",
+        "Deliver three units by Friday."
+      ],
+      "expected": {
+        "outcome": 1,
+        "lost_mask": 0
+      },
+      "evaluate_args": [
+        "roundtrip-faithful-001"
+      ],
+      "read_method": "get_result"
+    },
+    {
+      "id": "roundtrip-lossy-001",
+      "open_args": [
+        "roundtrip-lossy-001",
+        "Replace the entire source with exactly: Delivery is scheduled.",
+        "Copy text verbatim without adding facts",
+        "quantity of three units\ndelivery deadline Friday"
+      ],
+      "submit_method": "submit_source",
+      "submit_args": [
+        "roundtrip-lossy-001",
+        "Deliver three units by Friday."
+      ],
+      "expected": {
+        "outcome": 2,
+        "lost_mask": 3
+      },
+      "evaluate_args": [
+        "roundtrip-lossy-001"
+      ],
+      "read_method": "get_result"
+    }
+  ]
+}
