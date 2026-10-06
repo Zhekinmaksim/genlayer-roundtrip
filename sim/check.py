@@ -61,6 +61,8 @@ ns = dict(gl=gl, TreeMap=StorageGeneric, DynArray=StorageGeneric,
           Address=str, u256=int, allow_storage=lambda cls: cls)
 source = (ROOT / "contract.py").read_text()
 assert "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" in source
+assert source.splitlines()[0].startswith('# { "Depends":')
+assert source.splitlines()[1] == "", "Separate runner JSON from descriptive comments"
 exec(compile(source.replace("from genlayer import *", ""), str(ROOT / "contract.py"), "exec"), ns)
 Contract = ns[{"roundtrip": "RoundTrip", "counterfactual": "Counterfactual",
                "calibration": "Calibration"}[NAME]]
