@@ -2,11 +2,17 @@
 
 Checks selected aspects of meaning after a forward transformation and an isolated inverse transformation.
 
-## Status
+## Published deployment
 
-Prepared locally on 2026-10-03 from `files.zip`. Not deployed or published.
-SDK semantic validation and ABI extraction pass; 10 local regression test
-groups pass. These are not live GenVM/LLM/validator-consensus tests.
+Published and verified on 2026-10-06 in GenLayer hosted Studio.
+- [Contract](https://explorer-studio.genlayer.com/address/0xBef31E7e6B2586B089fdE61fa23C826b28485C9c)
+- [Exact deployed source](https://github.com/Zhekinmaksim/genlayer-roundtrip/blob/ff6f6bdfe4dae09bf4fc061ff81d07081b40956c/contract.py)
+- [Ready-to-copy submission](SUBMISSION.md)
+- [Live evidence](evidence.json)
+
+Deployment and both live evaluation transactions are FINALIZED with execution
+SUCCESS. Both stored outcomes matched expectations. Ten local regression groups
+and SDK semantic validation pass; see verification.json for the source hash.
 
 ## Material nondeterminism and independent validation
 
@@ -54,18 +60,18 @@ genlayer network set studionet
 genlayer deploy --contract contract.py
 ```
 
-All constructors have no arguments. The last two commands change the CLI
-network and deploy; they were NOT run for this preparation. Restore your
-previous network after testing. Choose normal validator consensus, not
-leader-only mode.
+All constructors have no arguments. The commands above deploy a NEW instance.
+The verified deployment is linked above; no redeployment is needed to submit it.
+Restore your previous network after testing. Use normal validator consensus,
+not leader-only mode.
 
 Use the exact method arguments in smoke.json with a fresh case ID each time:
 open_case, the listed submit method, evaluate, then get_result.
-Expected outputs are test expectations, not observed results.
+These two expected outputs were confirmed live; actual readback results and
+transaction hashes are in evidence.json.
 Wait for FINALIZED and inspect leader execution SUCCESS as well as stored
 state; transaction acceptance alone can also describe a reverted execution.
-Record deployment/evaluation transaction hashes and source SHA-256 before
-preparing a portal submission.
+Deployment/evaluation transaction hashes and source SHA-256 have been recorded.
 
 Test an unauthorized submission, duplicate submission, second evaluation and
 prompt-injection input in Studio as additional negative cases. Source and

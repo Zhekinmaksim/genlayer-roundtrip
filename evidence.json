@@ -1,0 +1,134 @@
+{
+  "verified_on": "2026-10-06",
+  "network": "GenLayer hosted Studio",
+  "repository": "https://github.com/Zhekinmaksim/genlayer-roundtrip",
+  "source_commit": "ff6f6bdfe4dae09bf4fc061ff81d07081b40956c",
+  "source_sha256": "959778f4f0f7ed8ef01c8da9a160d4cedf777368c47af5d270a35839e5e82f5a",
+  "contract_address": "0xBef31E7e6B2586B089fdE61fa23C826b28485C9c",
+  "deployment": {
+    "transaction": "0x54cf5eea9a0aa241f3daec2040a787a9fd3be45129ab8ffa4d1675462d63e64d",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "leader_only": false
+  },
+  "local": {
+    "test_groups_passed": 10,
+    "test_groups_total": 10,
+    "sdk_validation": "pass",
+    "linter": "0.11.0",
+    "warnings": 0,
+    "mocked": true
+  },
+  "cases": [
+    {
+      "id": "roundtrip-faithful-001",
+      "open_args": [
+        "roundtrip-faithful-001",
+        "Copy source verbatim",
+        "Copy text verbatim",
+        "quantity of three units\ndelivery deadline Friday"
+      ],
+      "submit_method": "submit_source",
+      "submit_args": [
+        "roundtrip-faithful-001",
+        "Deliver three units by Friday."
+      ],
+      "expected": {
+        "outcome": 1,
+        "lost_mask": 0
+      },
+      "evaluate_args": [
+        "roundtrip-faithful-001"
+      ],
+      "read_method": "get_result",
+      "transactions": {
+        "open": "0x510d666d54fe8e949376d404c1144429cf58bb8de3d2b8763313929256ee0257",
+        "submit": "0xe867e75687cc5d41054994755f20aeb40d16e9c8f79aa4b10f61cbd015c0cc6e",
+        "evaluate": "0x69422f342b4c2d119e81640b54c25eb5a0b4087c5965ede14d8153512ad5e52d"
+      },
+      "receipt": {
+        "status": "FINALIZED",
+        "leader_execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "votes": [
+          "AGREE",
+          "AGREE",
+          "DISAGREE",
+          "AGREE",
+          "DISAGREE"
+        ]
+      },
+      "stored_result": {
+        "lost_mask": 0,
+        "outcome": 1,
+        "reason": "evaluated",
+        "result_hash": "3f4dff7a492d72c009ac7e69984595fc96b6f6a44c71569bd45f11c91ff7c78d",
+        "source_hash": "48ada69a5eda1fea7ad72e472fc74c6dd1710d5de8fa8304ec518dd67ef467d0",
+        "terms_hash": "2ff810c5b1a8cf99d6ba72cf7487581fa36bcc2f14eaab8f7cfb7d0f804f166f"
+      },
+      "matched_expected": true
+    },
+    {
+      "id": "roundtrip-lossy-001",
+      "open_args": [
+        "roundtrip-lossy-001",
+        "Replace the entire source with exactly: Delivery is scheduled.",
+        "Copy text verbatim without adding facts",
+        "quantity of three units\ndelivery deadline Friday"
+      ],
+      "submit_method": "submit_source",
+      "submit_args": [
+        "roundtrip-lossy-001",
+        "Deliver three units by Friday."
+      ],
+      "expected": {
+        "outcome": 2,
+        "lost_mask": 3
+      },
+      "evaluate_args": [
+        "roundtrip-lossy-001"
+      ],
+      "read_method": "get_result",
+      "transactions": {
+        "open": "0x3bccd820a79b723a51873d81b4d417f28c81a7659f972f1d3c68fd3234a988f2",
+        "submit": "0xfa921bc1e18f2d0e42edfd11e258b7f2cdc61b1763070b38b8b3281c62aef418",
+        "evaluate": "0xf0564d6f6e69cf71000f3958176b1a364288db26a32be9eff98cf384346d849c"
+      },
+      "receipt": {
+        "status": "FINALIZED",
+        "leader_execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "votes": [
+          "AGREE",
+          "AGREE",
+          "IDLE",
+          "IDLE",
+          "AGREE"
+        ]
+      },
+      "stored_result": {
+        "lost_mask": 3,
+        "outcome": 2,
+        "reason": "evaluated",
+        "result_hash": "7b8c2ca082d57eb24a9f8dc67d572acb920d1e93c797a2023604beda6b68d530",
+        "source_hash": "48ada69a5eda1fea7ad72e472fc74c6dd1710d5de8fa8304ec518dd67ef467d0",
+        "terms_hash": "2625f41399e2bbc59f9aa7bc278c985b43efad847f9c1c286413c8f467015046"
+      },
+      "matched_expected": true
+    }
+  ],
+  "limits": [
+    "Hosted Studio, not mainnet.",
+    "Model consensus is not proof of correctness or guaranteed portal acceptance.",
+    "Local tests use mocks; live tests are the recorded cases only."
+  ],
+  "superseded_failed_deployment": {
+    "transaction": "0x7f0cb73b821cb39890b568f73a31dc23f644d05a425991a95fb9ed662b15ae9c",
+    "address": "0x72326BAcDC3007C0c9551fFdB21ab12C5751e57c",
+    "execution": "ERROR",
+    "result": "invalid_contract",
+    "fix": "Runner JSON separated from descriptive comments; replaced by the successful deployment above."
+  }
+}
